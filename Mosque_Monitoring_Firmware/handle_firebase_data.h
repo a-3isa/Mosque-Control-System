@@ -1,9 +1,9 @@
 #include <FirebaseClient.h>
 
-#define API_KEY "AIzaSyB5vZb_TyfFJe-U_mNMWyJi-0jbFHF_uhM"
-#define USER_EMAIL "a7med3isa000@gmail.com"
-#define USER_PASSWORD "a4s2d6w8"
-#define DATABASE_URL "https://mosque-c5598-default-rtdb.firebaseio.com/"
+#define API_KEY "API_KEY"
+#define USER_EMAIL "USER_EMAIL"
+#define USER_PASSWORD "USER_PASSWORD"
+#define DATABASE_URL "DATABASE_URL"
 void asyncCB(AsyncResult &aResult);
 void printResult(AsyncResult &aResult);
 DefaultNetwork network;  // initilize with boolean parameter to enable/disable network reconnection
