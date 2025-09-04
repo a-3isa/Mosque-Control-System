@@ -3,11 +3,11 @@
 #include "addons/TokenHelper.h"
 #include "addons/RTDBHelper.h"
 // Insert Firebase project API Key
-#define API_KEY "AIzaSyB5vZb_TyfFJe-U_mNMWyJi-0jbFHF_uhM"
+#define API_KEY "API_KEY"
 // User Email and password that already registerd or added in your project.
-#define USER_EMAIL "a7med3isa000@gmail.com"
-#define USER_PASSWORD "a4s2d6w8"
-#define DATABASE_URL "https://mosque-c5598-default-rtdb.firebaseio.com/"
+#define USER_EMAIL "USER_EMAIL"
+#define USER_PASSWORD "USER_PASSWORD"
+#define DATABASE_URL "DATABASE_URL"
 
 // Define Firebase objects
 FirebaseData fbdoFan;
