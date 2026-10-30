@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  firmware:
+    name: Compile ${{ matrix.sketch }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - sketch: Mosque_Controlling_Firmware
+            fqbn: esp8266:esp8266:nodemcuv2
+            platform: |
+              - name: esp8266:esp8266
+                source-url: https://arduino.esp8266.com/stable/package_esp8266com_index.json
+                version: 3.1.2
+            libraries: |
+              - name: Firebase Arduino Client Library for ESP8266 and ESP32
+                version: 4.4.14
+          - sketch: Mosque_Monitoring_Firmware
+            fqbn: esp32:esp32:esp32
+            platform: |
+              - name: esp32:esp32
+                source-url: https://espressif.github.io/arduino-esp32/package_esp32_index.json
+                version: 3.0.4
+            libraries: |
+              - name: FirebaseClient
+                version: 1.3.9
+              - name: ESP32Servo
+              - name: Adafruit NeoPixel
+    steps:
+      - uses: actions/checkout@v7
+      # The sketches read credentials from secrets.h, which is never committed.
+      - name: Use the example credentials
+        run: cp ${{ matrix.sketch }}/secrets.example.h ${{ matrix.sketch }}/secrets.h
+      - uses: arduino/compile-sketches@v1
+        with:
+          fqbn: ${{ matrix.fqbn }}
+          platforms: ${{ matrix.platform }}
+          libraries: ${{ matrix.libraries }}
+          sketch-paths: |
+            - ${{ matrix.sketch }}
+          enable-deltas-report: false
