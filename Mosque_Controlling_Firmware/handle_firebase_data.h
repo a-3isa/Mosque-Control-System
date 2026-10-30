@@ -1,13 +1,8 @@
+#include "secrets.h"  // credentials; copy secrets.example.h
 #include <Firebase_ESP_Client.h>
 #include <Wire.h>
 #include "addons/TokenHelper.h"
 #include "addons/RTDBHelper.h"
-// Insert Firebase project API Key
-#define API_KEY "API_KEY"
-// User Email and password that already registerd or added in your project.
-#define USER_EMAIL "USER_EMAIL"
-#define USER_PASSWORD "USER_PASSWORD"
-#define DATABASE_URL "DATABASE_URL"
 
 // Define Firebase objects
 FirebaseData fbdoFan;

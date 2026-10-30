@@ -1,8 +1,6 @@
+#include "secrets.h"  // credentials; copy secrets.example.h
 #include <ESP8266WiFi.h>
 
-// Insert your network credentials
-#define WIFI_SSID "Abdulrahman"
-#define WIFI_PASSWORD "12345678"
 // Initialize WiFi
 void initWiFi() {
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);

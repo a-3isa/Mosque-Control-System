@@ -1,9 +1,6 @@
+#include "secrets.h"  // credentials; copy secrets.example.h
 #include <FirebaseClient.h>
 
-#define API_KEY "API_KEY"
-#define USER_EMAIL "USER_EMAIL"
-#define USER_PASSWORD "USER_PASSWORD"
-#define DATABASE_URL "DATABASE_URL"
 void asyncCB(AsyncResult &aResult);
 void printResult(AsyncResult &aResult);
 DefaultNetwork network;  // initilize with boolean parameter to enable/disable network reconnection
