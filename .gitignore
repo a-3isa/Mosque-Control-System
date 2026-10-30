@@ -1,0 +1,15 @@
+# Device credentials (copy secrets.example.h to secrets.h)
+secrets.h
+
+# Office lock files and temp files
+~$*
+~WRL*.tmp
+
+# Arduino / PlatformIO build output
+build/
+.pio/
+
+# Editors and OS
+.vscode/
+.DS_Store
+Thumbs.db
